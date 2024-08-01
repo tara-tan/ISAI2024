@@ -34,3 +34,7 @@ class AlexNet(nn.Module):
         x = torch.flatten(x, 1)
         x = self.classifier(x)
         return x
+    
+
+def resnetWrapper():
+    model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=True)

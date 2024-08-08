@@ -3,3 +3,5 @@ __pycache__
 Osteoporosis\ Knee\ X-ray/
 tb_logs
 visualizations/
+OsteoBinary
+*.pth

@@ -71,9 +71,9 @@ class Block(nn.Module):
 
         
         
-class ResNet(nn.Module):
+class ResNuuT(nn.Module):
     def __init__(self, ResBlock, layer_list, num_classes, num_channels=3):
-        super(ResNet, self).__init__()
+        super(ResNuuT, self).__init__()
         self.in_channels = 64
         
         self.conv1 = nn.Conv2d(num_channels, 64, kernel_size=7, stride=2, padding=3, bias=False)
@@ -125,11 +125,11 @@ class ResNet(nn.Module):
         
         
 def ResNet50(num_classes, channels=3):
-    return ResNet(Bottleneck, [3,4,6,3], num_classes, channels)
+    return ResNuuT(Bottleneck, [3,4,6,3], num_classes, channels)
     
 def ResNet101(num_classes, channels=3):
-    return ResNet(Bottleneck, [3,4,23,3], num_classes, channels)
+    return ResNuuT(Bottleneck, [3,4,23,3], num_classes, channels)
 
 def ResNet152(num_classes, channels=3):
-    return ResNet(Bottleneck, [3,8,36,3], num_classes, channels)
+    return ResNuuT(Bottleneck, [3,8,36,3], num_classes, channels)
 

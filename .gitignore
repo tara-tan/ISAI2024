@@ -9,3 +9,5 @@ segmentedImages/
 segmentedImages - Copy/
 MedSAM/
 yolo*
+*.zip
+/*/

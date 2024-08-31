@@ -1,13 +1,13 @@
 import torch
 import torch.nn as  nn
 import torch.nn.functional as F
+import functools 
 
-
-class Bottleneck(nn.Module):
+class CustBottleneck(nn.Module):
     expansion = 4
-    def __init__(self, in_channels, out_channels, i_downsample=None, stride=1):
-        super(Bottleneck, self).__init__()
-        
+    def __init__(self, in_channels, out_channels,hookFunction, i_downsample=None, stride=1):
+        super(CustBottleneck, self).__init__()
+        self.hookFunction = hookFunction
         self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1, padding=0)
         self.batch_norm1 = nn.BatchNorm2d(out_channels)
         
@@ -28,6 +28,9 @@ class Bottleneck(nn.Module):
         x = self.relu(self.batch_norm2(self.conv2(x)))
         
         x = self.conv3(x)
+        if x.requires_grad:
+            hook = x.register_hook(functools.partial(self.hookFunction, x))
+
         x = self.batch_norm3(x)
         
         #downsample if needed
@@ -125,11 +128,11 @@ class ResNuuT(nn.Module):
         
         
 def ResNet50(num_classes, channels=3):
-    return ResNuuT(Bottleneck, [3,4,6,3], num_classes, channels)
+    return ResNuuT(CustBottleneck, [3,4,6,3], num_classes, channels)
     
 def ResNet101(num_classes, channels=3):
-    return ResNuuT(Bottleneck, [3,4,23,3], num_classes, channels)
+    return ResNuuT(CustBottleneck, [3,4,23,3], num_classes, channels)
 
 def ResNet152(num_classes, channels=3):
-    return ResNuuT(Bottleneck, [3,8,36,3], num_classes, channels)
+    return ResNuuT(CustBottleneck, [3,8,36,3], num_classes, channels)
 

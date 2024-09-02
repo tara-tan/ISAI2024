@@ -11,3 +11,4 @@ MedSAM/
 yolo*
 *.zip
 /*/
+*.7z

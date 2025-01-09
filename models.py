@@ -37,4 +37,5 @@ class AlexNet(nn.Module):
     
 
 def resnetWrapper():
-    model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet18', pretrained=True)
+    model = torch.hub.load('pytorch/vision:v0.19.0', 'resnet50', pretrained=True)
+    return model

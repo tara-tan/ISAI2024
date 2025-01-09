@@ -1,5 +1,16 @@
 lightning_logs
 __pycache__
 Osteoporosis\ Knee\ X-ray/
-tb_logs
+tb_logs*
 visualizations/
+OsteoBinary
+*.pth
+segmentedImages/
+segmentedImages - Copy/
+MedSAM/
+yolo*
+*.zip
+/*/
+*.7z
+*.txt
+*.rar

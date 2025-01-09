@@ -4,11 +4,12 @@ Data used is 224x224 rgb images+clinical data from : https://www.kaggle.com/data
 best performance is F1-macro: 0.70, increased to 0.75 with 2-step classification 
 
 to reproduce:  
-1. install pip packages in requirements.txt  
-2. Process dataset with segmenter.ipynb + some manual cleaning for outliers  
-3. Run data integrity check with pathchecks.ipynb  
-4. Run classification and GradCAM visualization with classification.ipynb  
-5. (optional) view results with tensorboard, or open them in visualizer.ipynb
+1. install pip packages in requirements.txt
+2. Download and unzip dataset into "./Osteoporosis Knee X-ray"
+3. Process dataset with segmenter.ipynb + some manual cleaning for outliers  
+4. Run data integrity check with pathchecks.ipynb  
+5. Run classification and GradCAM visualization with classification.ipynb  
+6. (optional) view results with tensorboard, or open them in visualizer.ipynb
 
 
 other files:  
